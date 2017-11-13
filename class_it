@@ -21,7 +21,11 @@ class Image {
 		imagedestroy($this->image);
 		$this->image=$image_thumb;
 	}
-
+        public function fontMark($content,$font_url,$size,$color,$local,$angle)
+	{
+		$col = imagecolorallocatealpha($this->image,$color[0],$color[1],$color[2],$color[3]);
+		imagettftext($this->image,$size,$angle,$local['x'],$local['y'],$col,$font_url,$content);
+	}
 	public function show(){
 		header("Content-type:".$this->info['mime']);
 		$funs="image{$this->info['type']}";
