@@ -26,6 +26,13 @@ class Image {
 		$col = imagecolorallocatealpha($this->image,$color[0],$color[1],$color[2],$color[3]);
 		imagettftext($this->image,$size,$angle,$local['x'],$local['y'],$col,$font_url,$content);
 	}
+	public function imageMark($source,$local,$alpha)
+	{
+		$infoMark = getimagesize($sourceMark);
+		$typeMark = image_type_to_extension($infoMark[2],false);
+		$funMark = "imagecreatefrom{$type2}";
+		$water = $funMark($sourceMark);
+	}
 	public function show(){
 		header("Content-type:".$this->info['mime']);
 		$funs="image{$this->info['type']}";
